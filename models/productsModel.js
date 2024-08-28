@@ -1,7 +1,9 @@
+const mongoose = require('mongoose');
+
 const productSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true,
+        // required: true, // Uncomment if you want this field to be required
         trim: true,
     },
     description: {
@@ -10,19 +12,18 @@ const productSchema = new mongoose.Schema({
     },
     price: {
         type: Number,
-        required: true,
+        // required: true, // Uncomment if you want this field to be required
     },
-    category: {
+    categoryId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category',
-        required: true,
+        ref: 'Category', // Reference to Category model
     },
     stock: {
         type: Number,
-        required: true,
+        // required: true, // Uncomment if you want this field to be required
         min: 0,
     },
-    imageUrl: {
+    image: {
         type: String,
         trim: true,
     },

@@ -9,6 +9,8 @@ const orderRoutes = require('./routes/orderRoute.js')
 const cartRoute = require('./routes/cartRoute.js')
 const userRoute = require('./routes/userRoute.js')
 const authRoute = require('./routes/authRoute.js')
+const adminRoute = require('./routes/adminRoute.js')
+const productRoute = require('./routes/productRoute.js')
 
 
 dotenv.config();
@@ -30,12 +32,17 @@ app.use(express.static(path.join(__dirname, "uploads")));
 app.use('/api/v1/category', categoryRoute);
 //Routes for Orders
 app.use('/api/v1/order', orderRoutes)
+//Routes for product
+app.use('/api/v1/product', productRoute)
+// product/createProduct
 //cart Routes
 app.use('/api/v1/cart', cartRoute)
 //user Routes
 app.use('/api/v1/user', userRoute)
 //auth routes
 app.use('/api/v1/authorization', authRoute)
+// admin routes 
+app.use('/api/v1/admin', adminRoute)
 
 
 app.get("/root-route", (req, res) => {
